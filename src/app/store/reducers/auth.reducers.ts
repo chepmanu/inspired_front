@@ -50,6 +50,35 @@ export function authReducer(state = initialState, action: AuthActions): State {
           }
       }
 
+      case AuthActionTypes.SIGNUP: {
+          return {
+              ...state,
+              isAuthenticated: false,
+              user: null,
+              errorMessage: null
+          }
+      }
+
+      case AuthActionTypes.LOGIN_SUCCESS: {
+          return {
+              ...state,
+              isAuthenticated: true,
+              user: {
+                  email: action.payload.email,
+                  token: action.payload.token
+              },
+              errorMessage: null
+          }
+      }
+
+      case AuthActionTypes.SIGNUP_FAILURE: {
+          return {
+              ...state,
+              user: null,
+              errorMessage: action.payload.errorMessage
+          }
+      }
+
       default: {
         return state;
       }
