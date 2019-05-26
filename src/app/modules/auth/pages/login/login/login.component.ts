@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     const payload = {
+      username: this.user.username,
       email: this.user.email,
       password: this.user.password
     }

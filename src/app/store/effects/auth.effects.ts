@@ -48,7 +48,7 @@ export class AuthEffects {
       //when the user logs in successfully, the token and email are saved to localStorage
       localStorage.setItem('token', user.payload.user.token);
       localStorage.setItem('email', user.payload.user.email);
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/home');
     })
   );
 
