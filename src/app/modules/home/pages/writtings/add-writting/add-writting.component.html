@@ -1,0 +1,50 @@
+     <div> 
+      <form  (ngSubmit)="onSubmit()" ngNativeValidate>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-grey">Add writting</h3>
+                    <div class="box">
+                        <form>
+                            <div class="field">
+                                <span *ngIf="titleError">{{titleError}}</span>
+                                <div class="control">
+                                    <input [(ngModel)]="writting.title" name="title" class="input is-large" type="text" placeholder="Your title" autofocus="" required>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <span *ngIf="descriptionError">{{descriptionError}}</span>
+                                <div class="control">
+                                    <input [(ngModel)]="writting.description" name="description" class="input is-large" type="text" placeholder="Descriptiion" autofocus="" required>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <span *ngIf="bodyError">{{bodyError}}</span>
+                                <div class="control">
+                                    <input [(ngModel)]="writting.body" name="body"class="input is-large" type="text" placeholder="Body">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input [(ngModel)]="writting.url" name="image"class="input is-large" type="text" placeholder="Image">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="checkbox">
+                  <input type="checkbox">
+                  Remember me
+                </label>
+                            </div>
+                            <button type="submit" (click)="onSubmit()" class="button is-block is-info is-large is-fullwidth">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </form>
+    </div>
+
+

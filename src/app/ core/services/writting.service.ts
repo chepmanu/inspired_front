@@ -27,5 +27,17 @@ export class WrittingService {
 
         return this.http.get<Writting>(fetchUrl, httpOptions);
     }
+
+    postWritting(body: string, title: string, description: string, url: string): Observable<any> {
+        const postUrl = `${this.BASE_URL}/writtings/`;
+        const writting = {
+            body: body,
+            title: title,
+            description: description,
+            url: url
+        }
+
+        return this.http.post<Writting>(postUrl,  { writting }, httpOptions);
+    }
     
 }

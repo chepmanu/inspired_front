@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { getWrittings } from '../../../../../store/actions/writting.actions';
-import { getWrittings2, } from '../../../../../store/app.state'
+import { getWrittings2, getWrittingFailed } from '../../../../../store/app.state'
 import { appState,} from '../../../../../store/app.state';
 import { Writting } from '../../../../../models/writting.model'
 import { Store, select } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-writtings',
@@ -19,25 +20,35 @@ export class WrittingsComponent implements OnInit {
   ]
   writtings : Writting[] = []; 
   user: null;
-  errorMessage: null;
+  sub: Subscription;
+  sub2: Subscription;
+  errorMessage: {};
+  titleError: string;
+  descriptionError: string;
+  bodyError: string;
   constructor(
       private store: Store<appState>
   ) {
     this.store.dispatch(new getWrittings())
 
-    this.store.pipe(select(getWrittings2)).pipe().subscribe(item => {
+  }
+
+    
+  ngOnInit() {
+
+    this.sub = this.store.pipe(select(getWrittings2)).pipe().subscribe(item => {
       if (item){
         this.writtings = item
         return this.writtings
       }
     })
 
+    
   }
 
-    
-  ngOnInit() {
-    
-    
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+    this.sub2.unsubscribe();
   }
 
 }

@@ -20,3 +20,4 @@ export const getWritting = createSelector(
 )
 
 export const getWrittings2 = createSelector(getWritting, writting.getAllWrittings)
+export const getWrittingFailed = createSelector(getWritting, writting.getWrittingError)

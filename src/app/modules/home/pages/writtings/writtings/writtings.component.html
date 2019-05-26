@@ -22,6 +22,13 @@
     </article>
     </div>
   </div>
+  <div *ngIf="errorMessage">
+      <ul>
+        <li *ngIf="bodyError">{{bodyError}}</li>
+        <li *ngIf="descriptionError">{{descriptionError}}</li>
+        <li *ngIf="titleError">{{titleError}}</li>
+      </ul>
+  </div>
 </div>
 
 </div>
