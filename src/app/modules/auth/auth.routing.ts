@@ -22,12 +22,8 @@ const routes: Routes = [
   },
   {
     path: 'signup',
-    children: [
-      {
-        path: 'signup',
-        component: SignupComponent
-      }
-    ]
+    component: SignupComponent
+    
   }
 ];
 

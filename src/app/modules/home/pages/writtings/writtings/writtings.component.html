@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="tile is-ancestor">
+  <div class="tile is-4 is-vertical is-parent">
+    <p class="title">Latest articles</p>
+    <div *ngFor="let writting of writtings">
+      <div class="tile is-child box is-shadowless left">
+        <p class="title">{{writting.title}}</p>
+        <p>{{writting.body}}</p>
+      </div>
+    </div>  
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box is-shadowless">
+      <p class="title">Featured articles</p>
+    <div *ngFor="let writting of writtings">    
+        <article class="tile is-child box is-shadowless" >
+      <p class="title">{{writting.title}}</p>
+      <p class="subtitle">{{writting.description}}</p>
+      <div class="content">
+        <p>{{writting.body}}</p>
+      </div>
+    </article>
+    </div>
+  </div>
+</div>
+
+</div>
