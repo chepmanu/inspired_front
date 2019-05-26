@@ -12,11 +12,13 @@ import { Actions, EffectsModule } from '@ngrx/effects';
 import { writtingReducer } from '../../store/reducers/writting.reducer';
 import { WrittingEffects } from '../../store/effects/writting.effects';
 import { reducers } from '../../store/app.state';
+import { AddWrittingComponent } from './pages/writtings/add-writting/add-writting.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
-        WrittingsComponent
+        WrittingsComponent,
+        AddWrittingComponent
     ],
     imports: [
         SharedModule,
